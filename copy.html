@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copy To Clipbaord Button</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <p id="text1">Pascallnetwork.aternos.me</p>
+    <button class="coputton" id="copyButton1">
+        Copy To Clipboard
+    </button>
+        <span class="alert">Copied!</span>
+    <script>
+        function copy(copyId){
+            var $inp=$("<input>");
+            $("body").append($inp);
+            $inp.val($(""+copyId).text()).select();
+            document.execCommand("copy");
+            $inp.remove();
+            $(".alert").fadeIn(500,function(){
+                $(".alert").fadeOut();
+            });
+        }
+        $(document).ready(function(){
+            $("#copyButton1").click(function(){
+                copy('#text1');
+            });
+            $("#copyButton2").click(function(){
+                copy('#text2');
+            });
+        });
+    </script>
+</body>
+</html>
+<style>p{
+    color: #262626;
+    font-family: 'Work sans',sans-serif;
+}
+.coputton{
+    background-color: #48B0ED;
+    padding: 5px 15px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.alert{
+    position: absolute;
+    margin: auto;
+    background-color: #101a2d;
+    color: white;
+    padding: 10px 0;
+    font-size: 16px;
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}</style>
